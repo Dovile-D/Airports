@@ -8,9 +8,8 @@ import utils.HibernateUtil;
 public class AirportDAO {
     public static void create(Airport airport){
 
-        // bet kokiam CRUD veiksmui atlikti reikalinga nauja sesija. per aplikacijos veikima viena gamykla
-        // (getSessionFactory) ir daug sesiju
-
+        // bet kokiam CRUD veiksmui atlikti reikalinga nauja sesija. per aplikacijos veikima visada viena sesiju gamykla
+        // (getSessionFactory) ir daug sesiju.
         Session session = HibernateUtil.getSessionFactory().openSession();
 
         // kai gauname sesija, galim pradeti transakcija
@@ -23,6 +22,8 @@ public class AirportDAO {
         transaction.commit();
 
         // TODO: savarankiskai padaryti redagavima ir trynima, jei liks laiko paziureti video su paieska
+
+
 
 
     }

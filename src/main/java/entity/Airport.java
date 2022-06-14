@@ -5,19 +5,19 @@ import javax.persistence.*;
 @Entity
 @Table(name = "airports_hibernate")
 public class Airport {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // atitinka auto_incrment MySql DB
-    @Column (name = "id")
+    @Id                                                 // primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // atitinka auto_increment MySql DB
+    @Column(name = "id")
     private int id;
-    @Column (name = "name")
+    @Column(name = "name")
     private String name;
-    @Column (name = "address")
+    @Column(name = "address")
     private String address;
-    @Column (name = "city")
+    @Column(name = "city")
     private String city;
 
     // constructor for editing an entry:
-    public Airport(int bizId, String bizName, String address, String city) {
+    public Airport(int id, String name, String address, String city) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -25,7 +25,7 @@ public class Airport {
     }
 
     // constructor for a new entry:
-    public Airport(String bizName, String address, String city) {
+    public Airport(String name, String address, String city) {
         this.name = name;
         this.address = address;
         this.city = city;
@@ -36,6 +36,10 @@ public class Airport {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -62,9 +66,6 @@ public class Airport {
         this.city = city;
     }
 
-    public void setBizId(int id) {
-        this.id = id;
-    }
 
     @Override
     public String toString() {

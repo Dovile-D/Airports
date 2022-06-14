@@ -48,4 +48,18 @@ public class AirportDAO {
 
         return airports;
     }
+
+    public static List<Airport> searchForList() {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        List<Airport> airports = new ArrayList<>();
+
+        airports = session.createQuery("FROM Airport").getResultList();
+
+        session.getTransaction().commit();
+
+        return airports;
+    }
+
 }

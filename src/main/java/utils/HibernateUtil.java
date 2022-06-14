@@ -11,6 +11,7 @@ import org.hibernate.service.ServiceRegistry;
 import java.util.Properties;
 
 public class HibernateUtil {
+
     private static SessionFactory sessionFactory;
 
     public static SessionFactory getSessionFactory() {
@@ -49,7 +50,7 @@ public class HibernateUtil {
                 configuration.setProperties(settings);
 
                 // Adding annotated class (entity) to configuration
-                configuration.addAnnotatedClass(Airport.class);
+                configuration.addAnnotatedClass(Airport.class); // nurodome konkrecias klases (pagrindine konfiguravimo dalis)
 
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

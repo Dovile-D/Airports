@@ -45,6 +45,17 @@ public class AirportDAO {
         session.getTransaction().commit();
     }
 
+    public static void deleteById(int id) {
+        Airport airport = searchById(id);
+
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.delete(airport);
+
+        session.getTransaction().commit();
+    }
+
     public static Airport searchById(int id) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();

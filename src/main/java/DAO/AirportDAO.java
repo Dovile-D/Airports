@@ -36,6 +36,15 @@ public class AirportDAO {
 
     }
 
+    public static void update(Airport airport) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        session.update(airport);
+
+        session.getTransaction().commit();
+    }
+
     public static Airport searchById(int id) {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
